@@ -1,10 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { Timer } from './Domain/Timer'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const timer = new Timer()
+timer.start()
+
+setTimeout(() => {
+  timer.stop()
+  console.log('Temps final :', /*timer.getTime()/*/)
+}, 5000)
+
+setTimeout(() => {
+  timer.reset()
+  console.log('minuteur reset')
+}, 8000)
